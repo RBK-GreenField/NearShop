@@ -25,17 +25,17 @@ var add = function (req, res){
 }
 
 var signup = function(req,res){
+  
   const newUser = new User({
         email: req.body.email,
-        name: req.body.name,
+        username: req.body.username,
+        address: req.body.address,
+        phone: req.body.phone,
         password: bcrypt.hashSync(req.body.password, 10)
       })
 newUser.save(err => {
       if (err) {
-        return res.status(400).json({
-          title: 'error',
-          error: 'email in use'
-        })
+        return res.status(400).send(err)
       }
       return res.status(200).json({
         title: 'signup success'
@@ -44,7 +44,7 @@ newUser.save(err => {
   };
 
   var login = function (req, res){
-    User.findOne({email: req.body.email}, (err, user) => {
+    User.findOne({username: req.body.username}, (err, user) => {
       if (err) return res.status(500).json({
         title: 'server error',
         error: err
