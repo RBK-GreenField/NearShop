@@ -13,6 +13,18 @@
         <li class="nav-item">
           <router-Link class="nav-link" to="/about">About</router-Link>
         </li>
+        <li class="nav-item">
+          <router-Link class="nav-link" to="/SigNup">SigNup</router-Link>
+        </li>
+        <li class="nav-item">
+          <router-Link class="nav-link" to="/LogIn">LogIn</router-Link>
+        </li>
+         <li class="nav-item">
+          <router-Link class="nav-link" to="/All-Products">All-Products</router-Link>
+        </li>
+        <li class="nav-item">
+          <router-Link class="nav-link" to="/Add-Product">Add-Product</router-Link>
+        </li>
        </ul>
      
     </div>
