@@ -25,6 +25,10 @@
         <li class="nav-item">
           <router-Link class="nav-link" to="/Add-Product">Add-Product</router-Link>
         </li>
+        <li class="nav-item">
+          <router-Link class="nav-link" to="/LogOut">LogOut</router-Link>
+        </li>
+        
        </ul>
      
     </div>
@@ -42,6 +46,6 @@ export default{
 
 <style>
 nav{
-background: #58be60
+background: rgb(203, 223, 223);
 }
 </style>

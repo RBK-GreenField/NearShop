@@ -28,8 +28,19 @@ var getCommentByProductId = function (req, res) {
     .then((comments) => {
       res.json(comments);
     })
-    .catch((err) => {
-      res.send(err);
-    });
-};
-module.exports = { addComment, deleteComment, getCommentByProductId };
+}
+var updateComment=function(req,res){
+    var up=req.body 
+    var id=req.params.id
+    Comment.findByIdAndUpdate(id,up).then(()=>{
+        res.send('update')
+    }).catch(()=>{
+        res.send('err')
+    })
+}
+module.exports = {
+     addComment,
+     deleteComment,
+     getCommentByProductId, 
+     updateComment 
+    };
