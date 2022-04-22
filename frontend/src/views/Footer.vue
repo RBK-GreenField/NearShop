@@ -19,7 +19,7 @@ export default{
 <style>
 .footer{
   width: 100%;
-  bottom: 10px;
+  bottom:-60px;
   margin: auto;
   text-align: center;
   position: absolute;
