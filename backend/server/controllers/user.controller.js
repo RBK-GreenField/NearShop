@@ -70,6 +70,7 @@ newUser.save(err => {
       })
     })
   }
+  // var getUserById=function
   
 
 module.exports = { selectAll , add , signup , login };
