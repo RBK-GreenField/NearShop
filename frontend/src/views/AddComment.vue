@@ -21,15 +21,15 @@
         <p>list</p>
         <!-- <div v-for="comment in comments" :key="comment._id"> -->
         <!-- <p>{{ comments.length }}</p> -->
-        <li v-for="comment in comments" v-bind:key="comment._id">
-          {{ comment.description }}
-        </li>
-        <!-- <a
-            class="button is-danger is-small"
-            @click="deleteComment()"
-            >Delete</a
-          > -->
-        <!-- </div> -->
+        <ul v-for="comment in comments" v-bind:key="comment._id">
+          <li>
+            {{ comment.description }}
+
+            <a class="button is-danger is-small" @click="deleteComment(comment._id)"
+              >Delete</a
+            >
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@ export default {
           user_id: "5",
         });
         this.description = "";
-        this.getCommentsbyProductId()
+        this.getCommentsbyProductId();
         // this.$router.push("/");
       } catch (err) {
         console.log(err);
@@ -75,21 +75,14 @@ export default {
         console.log(err);
       }
     },
-    // async deleteComment() {
-    //   // try {
-    //   //   const response = await axios.post(
-    //   //     "http://localhost:3000/api/comments/12",
-    //   //     {
-    //   //       description: this.description,
-    //   //     }
-    //   //   );
-    //   //   this.comments = response.data;
-    //   //   this.comment = "";
-    //   //   this.$router.push("/");
-    //   // } catch (err) {
-    //   //   console.log(err);
-    //   // }
-    // },
+    async deleteComment(_id) {
+      try {
+        await axios.delete(`http://localhost:3000/api/comments/deleteComment/${_id}`);
+        this.getCommentsbyProductId();
+      } catch (err) {
+        console.log(err);
+      }
+    },
   },
 };
 </script>
