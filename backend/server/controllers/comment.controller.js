@@ -1,5 +1,6 @@
-const { insertMany } = require('../database-mongo/Comment.model.js');
+
 const Comment = require('../database-mongo/Comment.model.js');
+
 
 var addComment=function (req,res) {
     var {description,product_id,user_id}=req.body
@@ -19,4 +20,12 @@ res.send('deleted')
         res.send('error')
     })
 }
-module.exports = {addComment,deleteComment };
+var getCommentByProductId=function(req,res){
+    let {product_id}=req.params
+Comment.find({product_id}).then((comments)=>{
+    res.json(comments)
+}).catch((err)=>{
+    res.send(err)
+})
+}
+module.exports = {addComment,deleteComment,getCommentByProductId };
