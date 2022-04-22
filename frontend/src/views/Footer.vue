@@ -19,15 +19,11 @@ export default{
 <style>
 .footer{
   width: 100%;
-  height: 10%;
-  bottom: 10px;
+  bottom:-120px;
   margin: auto;
   text-align: center;
   position: absolute;
-  align-items:center;
-  display: flex;
-  border: 3px solid #2b8080;
-  background: #2b8080;
+  background: rgb(203, 223, 223);
 }
 .icon{
     font-size: 25px;
