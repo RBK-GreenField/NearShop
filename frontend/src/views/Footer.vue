@@ -23,8 +23,7 @@ export default{
   margin: auto;
   text-align: center;
   position: absolute;
-  border: 3px solid #8AC007;
-  background: #3f802b;
+  background: rgb(203, 223, 223);
 }
 .icon{
     font-size: 25px;
