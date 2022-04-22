@@ -71,5 +71,26 @@ newUser.save(err => {
     })
   }
   
-
-module.exports = { selectAll , add , signup , login };
+  
+    var logOut= (req,res)=>{
+    let token = req.headers.token; //token
+    jwt.verify(token, 'secretkey', (err, decoded) => {
+      if (err) return res.status(401).json({
+        title: 'unauthorized'
+      })
+      //token is valid
+      User.findOne({ _id: decoded.userId }, (err, user) => {
+        if (err) return console.log(err)
+        return res.status(200).json({
+          title: 'user grabbed',
+          user: {
+            email: user.email,
+            username: user.username,
+            id:user.id
+          }
+        })
+      })
+  
+    })
+  }
+module.exports = { selectAll , add , signup , login , logOut};
