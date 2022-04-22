@@ -1,15 +1,19 @@
 <template>
-<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-<div class="container" >
-    <label for="uname"><b>Username</b></label>
+
+<section class="vh-100 bg-image new" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+<div class="container1" >
+<div class="card" style="border-radius: ">
+            <div class="card-body p-7">
+    <label for="uname" style="margin:0 ; padding:0"><b>Username</b></label>
     <input type="text" placeholder="Enter Username"  v-model="username" name="uname" required>
 
-    <label for="psw"><b>Password</b></label>
+    <label for="psw" style="margin:0 ; padding:0"><b>Password</b></label>
     <input type="password"  placeholder="Enter Password"  v-model="password" name="psw" required>
         
      <button @click="login" class="btn btn-primary">login</button>
     {{ error }}
-    
+    </div>
+    </div>
   </div>
   </section>
   
@@ -59,44 +63,16 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
 
-button:hover {
-  opacity: 0.8;
-}
 
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-}
-
-.imgcontainer {
+.container1 {
   text-align: center;
-  margin: 24px 0 12px 0;
-}
-
-img.avatar {
+  margin-left:460px ;
   width: 40%;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
-.container {
-  padding: 16px;
-}
 
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {

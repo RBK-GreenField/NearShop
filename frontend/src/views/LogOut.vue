@@ -29,7 +29,9 @@ export default {
         this.username  =  res.data.user.username ;
         this.email = res.data.user.email ;
         this.id= res.data.user.id
-      })
+      }).catch((error) => {
+          console.log(error);
+        })
   },
   methods: {
     logout() {
