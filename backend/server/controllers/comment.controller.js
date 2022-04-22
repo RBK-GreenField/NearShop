@@ -1,4 +1,3 @@
-
 const Comment = require('../database-mongo/Comment.model.js');
 
 
@@ -28,4 +27,13 @@ Comment.find({product_id}).then((comments)=>{
     res.send(err)
 })
 }
-module.exports = {addComment,deleteComment,getCommentByProductId };
+var updateComment=function(req,res){
+    var up=req.body 
+    var id=req.params.id
+    Comment.findByIdAndUpdate(id,up).then(()=>{
+        res.send('update')
+    }).catch(()=>{
+        res.send('err')
+    })
+}
+module.exports = {addComment,deleteComment,getCommentByProductId,updateComment};
