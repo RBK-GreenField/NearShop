@@ -28,7 +28,7 @@ var getCommentByProductId = function (req, res) {
     .then((comments) => {
       res.json(comments);
     })
-  
+}
 var updateComment=function(req,res){
     var up=req.body 
     var id=req.params.id
@@ -38,4 +38,9 @@ var updateComment=function(req,res){
         res.send('err')
     })
 }
-module.exports = {addComment,deleteComment,getCommentByProductId,updateComment};
+module.exports = {
+     addComment,
+     deleteComment,
+     getCommentByProductId, 
+     updateComment 
+    };
