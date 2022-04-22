@@ -35,7 +35,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 800px;
    
   }
   .hero-body .title {
