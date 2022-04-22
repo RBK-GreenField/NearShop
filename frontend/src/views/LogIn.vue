@@ -1,6 +1,6 @@
 <template>
   <div>
-    EMAIL: <input type="text" v-model="email"> <br/>
+    username: <input type="text" v-model="username"> <br/>
     PASSWORD: <input type="password" v-model="password"> <br/>
     <button @click="login">login</button>
     {{ error }}
@@ -14,17 +14,17 @@ export default {
   name: 'LogIn',
   data() {
     return {
-      email: '',
+      username: '',
       password: '',
     }
   },
   methods: {
     login() {
       let user = {
-        email: this.email,
+        username: this.username,
         password: this.password
       }
-      axios.post('http://localhost:3000/api/Users/login', user)
+      axios.post('http://localhost:3000/api/users/login', user)
         .then((res) => {
           //if successfull
           if (res.status === 200) {
