@@ -35,7 +35,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    height: 460px;
    
   }
   .hero-body .title {
@@ -44,9 +44,12 @@ export default {
     font-size: 60px;
   }
   .subtitle {
+    
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     font-size: 30px;
   }
-  
+ /*  p{
+    color
+  } */
   
 </style>
