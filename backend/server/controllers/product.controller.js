@@ -11,5 +11,21 @@ var add = function (req, res){
       res.status(500).send(error);
     });
   }
-  
-module.exports = { add };
+ var deleteProduct=function(req,res){
+   let id=req.params.id
+   Product.findByIdAndRemove(id).then(()=>{
+     res.send('deleted')
+   }).catch((err)=>{
+     res.send(err)
+   })
+ }
+ var updateProduct=function(req,res){
+   let id=req.params.id
+   let up=req.body
+   Product.findByIdAndUpdate(id,up).then(()=>{
+     res.send('updated')
+   }).catch((err)=>{
+     res.send(err)
+   })
+ }
+module.exports = { add,deleteProduct,updateProduct };
