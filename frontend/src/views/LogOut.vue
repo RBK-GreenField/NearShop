@@ -1,9 +1,34 @@
+
 <template>
-  <div>
-    <button @click="logout">logout</button>
-    <h1>HELLO {{ username }}</h1>
-    <h2>your email is: {{ email }}   id {{id}}</h2>
+
+<!-- <div class="first">
+  <div class="container1">
+      <br>
+      <br>
+    <div class="card1">
+      <div class="card-header">
+      <h2>your email is: {{ email }}   id {{id}}</h2>
+      </div>
+      <div class="card-body">
+        <h2>your email is: {{ email }}   id {{id}}</h2>
+        <h1 class="card-title"> {{ username }} from here you can lougout </h1>
+        <h1 class="card-text">see you next time and thank you for your time</h1>
+        <button @click="logout" class="btn btn-primary btn-block mb-4" id="log">logout</button>  
+        </div>
+    </div>
   </div>
+</div>   -->
+<div class="card1">
+<div class="card text-dark bg-success mb-3" style="max-width: 19rem;">
+  <div class="card-header">lougout</div>
+  <div class="card-body">
+    <!-- <h5 class="card-title">Info card title</h5> -->
+    <p class="card-text">see you next time and thank you for your time.</p>
+    <button @click="logout" class="btn btn-primary btn-block mb-4" id="log">logout</button>
+  </div>
+</div>
+</div>
+
 </template>
 <script>
 import axios from 'axios';
@@ -41,3 +66,15 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.card1{
+margin-left:600px;
+margin-top:200px
+}
+
+/* #log{
+  margin-left:320px
+} */
+</style>
