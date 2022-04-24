@@ -12,7 +12,6 @@ var add = function (req, res){
     });
   }
 
-
   var getProducts =  (req , res) => {
     Product.find({})
     .then((products) => {
@@ -36,5 +35,22 @@ var add = function (req, res){
       });
   };
 
+ var deleteProduct=function(req,res){
+   let id=req.params.id
+   Product.findByIdAndRemove(id).then(()=>{
+     res.send('deleted')
+   }).catch((err)=>{
+     res.send(err)
+   })
+ }
+ var updateProduct=function(req,res){
+   let id=req.params.id
+   let up=req.body
+   Product.findByIdAndUpdate(id,up).then(()=>{
+     res.send('updated')
+   }).catch((err)=>{
+     res.send(err)
+   })
+ }
 
-module.exports = { add , getProducts,    getProductsByUserId };
+module.exports = { add , getProducts, getProductsByUserId, deleteProduct, updateProduct };
