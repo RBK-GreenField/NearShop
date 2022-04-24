@@ -86,8 +86,8 @@ newUser.save(err => {
           user: {
             email: user.email,
             username: user.username,
-            address: req.body.address,
-            phone: req.body.phone,
+            address: user.address,
+            phone: user.phone,
             id:user.id
           }
         })

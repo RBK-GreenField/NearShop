@@ -11,49 +11,64 @@
     {{ error }}
     </div>
     </div> -->
+<section class="vh-100" style="background-color: #9A916B;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 5%; margin-top:-50px">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+                alt="login form" class="img-fluid" style="border-radius: 5% 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
 
- 
-<section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-  <div class="mask d-flex align-items-center h-100 gradient-custom-3" >
-    <div class="container h-100" >
-      <div class="row d-flex justify-content-center align-items-center h-50">
-        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 10px;">
-            <div class="card-body p-7">
-              <h2 class="text-uppercase text-center mb-5">Signup</h2>
-              <form>
-                <div class="form-outline mb-4  input" >
-                <label class="form-label" for="username" style="margin:0 ; padding:0">Your userName</label>
-                  <input type="text" v-model="username"  class="form-control form-control-lg"  />
+                <form>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                    <span class="h1 fw-bold mb-0">Logo</span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">create your account</h5>
+
+                   <div class="form-outline mb-4">
+                    <input type="text" id="form2Example07" class="form-control form-control-lg" v-model="username" />
+                    <label class="form-label" for="form2Example27">username</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form2Example17" class="form-control form-control-lg" v-model="email" />
+                    <label class="form-label" for="form2Example17">Email address</label>
+                  </div>
                   
-                </div>
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form2Example27" class="form-control form-control-lg" v-model="password"/>
+                    <label class="form-label" for="form2Example27">Password</label>
+                  </div>
 
-                <div class="form-outline mb-4">
-                 <label class="form-label" for="form3Example3cg" style="margin:0 ; padding:0">Your Email</label>
-                  <input type="email"  v-model="email"  class="form-control form-control-lg" />
-                 
-                </div>
+                   <div class="form-outline mb-4">
+                    <input type="text" id="form2Example47" class="form-control form-control-lg" v-model="address"/>
+                    <label class="form-label" for="form2Example27">address</label>
+                  </div>
 
-                <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example4cg"  style="margin:0 ; padding:0">Password</label>
-                  <input type="password" v-model="password"  class="form-control form-control-lg" />
-                </div>
+                   <div class="form-outline mb-4">
+                    <input type="text" id="form2Example57" class="form-control form-control-lg" v-model="phone" />
+                    <label class="form-label" for="form2Example27">phone number</label>
+                  </div>
 
-                <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example5cdg"  style="margin:0 ; padding:0">Your Phone</label>
-                  <input type="phone" v-model="phone"  class="form-control form-control-lg" />
-                </div>
+                  <div class="pt-1 mb-4">
+                    <button  @click="signup" class="btn btn-dark btn-lg btn-block" type="button">SigNup</button>
+                    {{ error }}
+                  </div>
 
-                <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example6cdg"  style="margin:0 ; padding:0">Your Address</label>
-                  <input type="phone" v-model="address"  class="form-control form-control-lg" />
-                </div>
-                <div class="d-flex justify-content-center">
-                  <button   @click="signup" class="btn btn-primary  submit" >signup</button>
-                  {{ error }}
-                  
-                </div>
-              </form>
+                  <a class="small text-muted" href="#!">Forgot password?</a>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+
+              </div>
             </div>
           </div>
         </div>
@@ -103,25 +118,5 @@ export default {
 }
 </script>
 <style>
-.gradient-custom-3 {
-  background: #84fab0;
-
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
-.gradient-custom-4 {
-  background: #84fab0;
-
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
-
-  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-}
- 
-  label { color: #aaa; display: inline-block; margin: 25px 0 15px; text-transform: uppercase; } 
-  input { display: block; padding: 10px 6px; width: 100%; box-sizing: bordre-box; border: none; border-bottom: 1px solid #ddd; color: #555; } 
-  input { display: inline-block; width: 16px; margin: 0 10px 0; position: relative; top: 2px; } 
-  .pill { display: inline-block; margin: 20px 10px 0 0; padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: pointer; background: #eee; } 
-  button { background: rgb(7, 24, 7); border: 0; padding: 10px 20px; color: white; border-radius: 20px; } 
-  .submit { text-align: center; } .error { color: #FF0000; margin-top: 10px; font-size: 0.8em; font-weight: bold; } 
+   
 </style>
