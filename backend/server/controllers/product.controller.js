@@ -11,6 +11,30 @@ var add = function (req, res){
       res.status(500).send(error);
     });
   }
+
+  var getProducts =  (req , res) => {
+    Product.find({})
+    .then((products) => {
+      res.json(products);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+    
+  } ;
+  ///////////
+  var getProductsByUserId = function (req, res) {
+    let {user_id}= req.params
+    console.log(user_id)
+    Product.find({user_id})
+      .then((products) => {
+        res.send(products);
+      })
+      .catch((err) => {
+        res.send(err);
+      });
+  };
+
  var deleteProduct=function(req,res){
    let id=req.params.id
    Product.findByIdAndRemove(id).then(()=>{
@@ -28,4 +52,5 @@ var add = function (req, res){
      res.send(err)
    })
  }
-module.exports = { add,deleteProduct,updateProduct };
+
+module.exports = { add , getProducts, getProductsByUserId, deleteProduct, updateProduct };
