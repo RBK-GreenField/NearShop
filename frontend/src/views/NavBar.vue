@@ -14,7 +14,7 @@
         <li class="nav-item" >
           <router-Link class="nav-link" to="/about">About</router-Link>
         </li>
-        <li class="nav-item" v-if="user==null">
+        <li class="nav-item" v-if="user==null" style="margin-left:510%">
           <router-Link class="nav-link" to="/SigNup">SigNup</router-Link>
         </li>
         <li class="nav-item" v-if="user==null">
@@ -23,10 +23,13 @@
          <li class="nav-item" v-if="user">
           <router-Link class="nav-link" to="/All-Products">All-Products</router-Link>
         </li>
+         <li class="nav-item" v-if="user">
+          <router-Link class="nav-link" to="/MyProducts">MyProduct</router-Link>
+        </li>
         <li class="nav-item" v-if="user">
           <router-Link class="nav-link" to="/Add-Product">Add-Product</router-Link>
         </li>
-        <li class="nav-item" v-if="user" >
+        <li class="nav-item" v-if="user"  style="margin-left:1000px">
           <router-Link class="nav-link" to="/LogOut">LogOut</router-Link>
         </li>
         
