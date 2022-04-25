@@ -11,4 +11,10 @@ var add = function (req, res){
       res.status(500).send(error);
     });
   }
-module.exports = { add };
+
+  let addImage =(req,res)=>{
+  
+    console.log(req.file)
+
+  }
+module.exports = { add, addImage };
