@@ -2,6 +2,7 @@
   <div class="home">
     zid produit fisa3
     <AddComment />
+    <UploadImg/>
   </div>
   {{ id }}
 </template>
@@ -9,11 +10,13 @@
 <script>
 import AddComment from "./AddComment";
 import axios from "axios";
+import UploadImg from "@/components/UploadImg.vue";
 export default {
   name: "Add-Product",
   components: {
     AddComment,
-  },
+    UploadImg
+},
   data() {
     return {
       title: "",
