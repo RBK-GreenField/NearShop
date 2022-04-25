@@ -2,6 +2,7 @@ const Product = require("../database-mongo/Product.model");
 const Cart = require("../database-mongo/Cart.model.js");
 const cloudinary = require("../utils/cloudinary");
 
+
 var add = function (req, res) {
   let { title, description, image_url, quantite, user_id } = req.body;
 
