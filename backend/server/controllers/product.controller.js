@@ -36,7 +36,7 @@ var add = function (req, res) {
       product
         .save()
         .then((product) => {
-          res.json(product);
+          // res.json(product);
         })
         .catch((err) => console.log(err));
     }
