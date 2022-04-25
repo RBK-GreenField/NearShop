@@ -1,9 +1,10 @@
 <template>
-<h1>My Product</h1>
+<h1>Welcome {{username}} to your page </h1>
+<h1>Your Product</h1>
 <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">Add  your Product</h3>
+        <h3 class="pt-3"> From here you can add  your Product</h3>
       </div>
     </div>
     <div class="row">
@@ -25,23 +26,16 @@
           <button type="button" @click="AddProduct" class="btn btn-primary" id="save">
             Save
           </button>
-          <button type="button" @click="getProductById" class="btn btn-primary" id="save">
+          <button type="button" @click="getProductById" class="btn btn-primary" id="get">
             get product
           </button>
         </form>
       </div>
-      <div class="col-3">
-          <li>
-            {{data}}
+        </div>
 
-           
-            >
-          </li></div>
-    </div>
   </div>
   <br>
   <br>
-{{user_id}} 
   <AddComment/>
 </template>
 
@@ -62,24 +56,25 @@ export default {
       phone:'',
       email:'',
       address:'',
+      username:'',
       data:[]
     }
       },
     mounted() {
     axios.get('http://localhost:3000/api/users/user', { headers: { token: localStorage.getItem('token')}})
       .then(res => {
-        console.log(res.data.user.id)
+        console.log(res.data.user.username)
+
         // to get information of the user
         this.user_id = res.data.user.id
         this.email=res.data.user.email
         this.address= res.data.user.address
         this.phone= res.data.user.phone
-        // console.log(this.address)
-        // console.log(this.email)
+        this.username = res.data.user.username
        
       })
       .then((res)=>{
-        console.log(res.user_id,"heee")
+        console.log(res.username,"heee")
       })
       .catch((error) => {
           console.log(error);
@@ -104,27 +99,33 @@ export default {
       axios.post('http://localhost:3000/api/products/add', newProduct)
 .then(() => {
           this.$router.push("All-Products");
-          // console.log(res.data.user.id);
+          console.log(this.data);
         }).catch((error) => {
           console.log(error);
         });
     },
 
   getProductById(){
-    console.log(this.user_id,"jjkjkjkjkj")
-        axios.get(`http://localhost:3000/api/products/${this.user_id}`)
-        .then((res)=>{
-          console.log(res);
-          this.data = res.data
-        }).catch((error) => {
-          console.log(error);
-        });
+    // console.log(this.user_id,"jjkjkjkjkj")
+    //     axios.get(`http://localhost:3000/api/products/${this.user_id}`)
+    //     .then((res)=>{
+    //       console.log(res);
+    //       this.data = res.data
+    //       this.$router.push("All-Products");
+    //     }).catch((error) => {
+    //       console.log(error);
+    //     });
+     this.$router.push("MyProducts");
   }
   
   }}
 </script>
 
 <style>
+h1{
+  text-align:center
+}
+
 h1{
   text-align:center
 }
@@ -137,4 +138,18 @@ h1{
 #save{
   margin-left:45%
 }
+
+#get{
+  margin-top:80px;
+  margin-left:-85px
+}
+
+
+
+h1 {
+    text-align: center;
+    color: #333333
+}
+
+
 </style>
