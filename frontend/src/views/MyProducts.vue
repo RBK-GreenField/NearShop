@@ -1,37 +1,34 @@
 <template>
+<div>
+
  <button type="button" @click="getProductById" class="btn btn-primary"  id="my">get my product 
  </button>
  <br>
- 
- <!-- <div class="container3" style="margin-top:20px"  >
- <div class="row">
- <div class="col-lg-6 mb-4"> -->
-      <div v-for="element in data" v-bind:key="element._id" >
-      <div class="body">
-    <div class="container3" style="margin-top:20px"  >
- <div class="row">
- <div class="col-lg-6 mb-4">
-     <!-- <div class="row">  -->
+ <div class="body">
+ <div class="home5">
+ <div v-for="element in data" v-bind:key="element._id" >
+     <div class="container3">
          <h1>{{element.title}}</h1>
          <div class="cardcontainer">
-             <div class="photo"> <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500">
+             <div class="photo"> <img :src="element.image_url">
                  <div class="photos">Photos</div>
              </div>
              <div class="content">
                  <p class="txt4"> Quantite: {{element.quantite}}</p>
-                 <br>
+                 
                  <p class="txt2">Description:{{element.description}}</p>
              </div>
              <div class="footer1">
                  <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
                  <p class="txt3"><i class="far fa-clock"></i>10 Minutes Ago <span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
              </div>
+             </div>
          </div>
-          </div>
-    </div>
-    </div>
-        </div>
-           </div>
+     </div>
+     </div>
+     </div>
+
+  </div>
 
 </template>
 
@@ -43,7 +40,8 @@ name:'MyProducts',
 data() {
     return {
      user_id:'',
-      data:[]
+      data:[],
+     
     }
       },
       mounted() {
@@ -65,7 +63,7 @@ methods:{
     console.log(this.user_id,"jjkjkjkjkj")
         axios.get(`http://localhost:3000/api/products/${this.user_id}`)
         .then((res)=>{
-          console.log(res);
+          console.log(res.data);
           this.data = res.data
         }).catch((error) => {
           console.log(error);
@@ -76,16 +74,30 @@ methods:{
 </script>
 
 <style>
+
 #my{
 margin-left:45%
 }
+
+h1 {
+    text-align: center;
+    color: #333333
+}
+.home5{
+    display:flex;
+    flex-wrap: wrap;
+}
 .body {
-    margin: 0;
+    margin-left:10%;
+    margin-top: 5%;
     padding: 0;
     font-family: 'roboto', sans-serif;
     background-color: #F2F2F2
 }
+.container3{
+     margin: 10px;
 
+}
 h1 {
     text-align: center;
     color: #333333
