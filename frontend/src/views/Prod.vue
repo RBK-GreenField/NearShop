@@ -1,30 +1,39 @@
 <template>
   <div class="home">
-<div class="product-card" >
-  <h5 class="card-title">Card title</h5>   
-    <div class="product-pic"></div>
-        <p class="card-text">Earrings Stud Earrings Kawaii Pokémon Cute Handmade Jewelry Eevee Eevee Pikachu Hoodie Handmade France Plastic Epoxy Resin</p>
-<button class="plus" @click="increment()">+</button>
-<input class="quantity" :value="amount" />
-<button class = 'minus' @click="decrement()">-</button>
-        <a href ="#" class="product-button">Add to Card</a>
-
+    <h1>here our all Products{{ data }}</h1>
+    <div class="product-card">
+      <h5 class="card-title">Card title</h5>
+      <div class="product-pic"></div>
+      <p class="card-text">
+        Earrings Stud Earrings Kawaii Pokémon Cute Handmade Jewelry Eevee Eevee
+        Pikachu Hoodie Handmade France Plastic Epoxy Resin
+      </p>
+      <button class="plus" @click="increment()">+</button>
+      <input class="quantity" :value="amount" />
+      <button class="minus" @click="decrement()">-</button>
+      <a href="#" class="product-button">Add to Card</a>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
 // @ is an alias to /src
-
+import axios from 'axios'
 export default {
-  name:'All-Products',
   
-   data() {
-    return {
+  name:'All-Products',
+  data(){
+    return{
+      data:[],
       amount: 0,
-    };
+    }
   },
-  methods: {
+  created(){
+    axios.get('http://localhost:3000/api/products/getProducts').then(res=>{
+      console.log(res.data);
+    this.data=res.data
+    },
+   methods: {
     increment() {
       this.amount++;
     },
@@ -82,7 +91,7 @@ export default {
     padding: 8px 24px;
     border-radius:20px;
     transition:.4s linear;
-    
+    )
   }
   .product-button:hover {
     transform: scale(1.06);

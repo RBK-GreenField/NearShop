@@ -18,7 +18,7 @@
         </div>
       </div>
       <div>
-        <p>list</p>
+        <p>list </p>
         <!-- <div v-for="comment in comments" :key="comment._id"> -->
         <!-- <p>{{ comments.length }}</p> -->
         <ul v-for="comment in comments" v-bind:key="comment._id">
