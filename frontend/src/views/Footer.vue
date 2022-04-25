@@ -1,13 +1,13 @@
 <template>
      <div class="footer">
-              <div>
+              <div class="icons">
 <i class="icon fa-brands fa-instagram" ></i>
 <i class="icon fa-brands fa-facebook"></i>
 <i class="icon fa-brands fa-twitter"></i>
 <i class="icon fa-brands fa-linkedin-in"></i>
     </div>
-               <p class="list-inline-item">Contuct Us (93700655)</p>
-           <p class="copyright">Company Name: 'NearShop' © 2022 </p>
+               <p class="item">Contuct Us (93700655)</p>
+          <div class="copyright"> <p >Company Name: 'NearShop' © 2022 </p></div> 
         </div>
 </template>
 <script>
@@ -30,5 +30,16 @@ export default{
     margin-right:10px;
 
 }
+.icons,.copyright{
+flex: 3;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.item{
+  flex: 6;
+}
+
  
 </style>
