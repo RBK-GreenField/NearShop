@@ -1,4 +1,5 @@
-var User = require('../database-mongo/User.model.js');
+const User = require('../database-mongo/User.model.js');
+const Cart = require("../database-mongo/Cart.model");
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const { send } = require('process');
@@ -35,14 +36,15 @@ var signup = function(req,res){
         phone: req.body.phone,
         password: bcrypt.hashSync(req.body.password, 10)
       })
-newUser.save(err => {
-      if (err) {
-        return res.status(400).send(err)
-      }
-      return res.status(200).json({
-        title: 'signup success'
-      })
-    })
+newUser.save().then(user =>{
+  let cart = new Cart({
+    user_id: user._id ,
+    listProduct: [] ,
+    total: 0,
+    status: "vide",
+  })
+  cart.save().then(cart=>res.send('cart added')).catch(err=>res.send(err))
+})
   };
 
   var login = function (req, res){
