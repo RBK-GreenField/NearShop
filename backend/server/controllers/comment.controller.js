@@ -42,5 +42,5 @@ module.exports = {
      addComment,
      deleteComment,
      getCommentByProductId, 
-     updateComment 
+     updateComment
     };

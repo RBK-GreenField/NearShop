@@ -1,6 +1,8 @@
 var User = require('../database-mongo/User.model.js');
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const { send } = require('process');
+
 
 var selectAll = function (req, res) {
   User.find({})
@@ -71,7 +73,24 @@ newUser.save(err => {
     })
   }
   
-  
+  var getUserById = function (req, res) {
+    let {id}=req.params
+    User.findOne({_id:id}).then((user)=>{
+      res.send(user)
+    }).catch((err)=>{
+      res.send(err)
+    })
+  }
+  var updateUser=function(req,res){
+    let id=req.params.id
+    let up=req.body
+    User.findByIdAndUpdate(id,up).then(()=>{
+      res.send('updated')
+    }).catch((err)=>{
+      res.send(err)
+    })
+  }
+
     var logOut= (req,res)=>{
     let token = req.headers.token; //token
     jwt.verify(token, 'secretkey', (err, decoded) => {
@@ -86,8 +105,8 @@ newUser.save(err => {
           user: {
             email: user.email,
             username: user.username,
-            address: req.body.address,
-            phone: req.body.phone,
+            address: user.address,
+            phone: user.phone,
             id:user.id
           }
         })
@@ -95,4 +114,4 @@ newUser.save(err => {
   
     })
   }
-module.exports = { selectAll , add , signup , login , logOut};
+module.exports = { selectAll , add , signup , login , logOut,getUserById,updateUser};
