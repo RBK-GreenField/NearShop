@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const db = require("./index.js");
+
 const ProductSchema = new mongoose.Schema({
     title: String,
     description: String,
