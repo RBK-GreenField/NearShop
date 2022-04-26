@@ -1,26 +1,33 @@
 <template>
-  <div class="home">
-    <h1>here our all Products{{ data }}</h1>
+<div>
+<h1 style="margin-left:0%">here our all Products</h1>
+  <div class="home2">
+    <br>
+    <div v-for="element in data" v-bind:key="element._id" >
     <div class="a-box">
     <div class="img-container">
       <div class="img-inner">
         <div class="inner-skew">
           <img
-            src="https://m.media-amazon.com/images/G/08/handmade/2020/Store/FR_Jewellery_Bracelets.jpg"
+            :src="element.image_url"
           />
         </div>
       </div>
     </div>
     <div class="text-container">
-      <h3>A blue bird</h3>
+      <h3> Name:{{element.title}}</h3>
       <div>
-        <p>This a demo experiment to skew image container. It looks good.</p>
+        <p>Description:{{element.description}}</p>
+        
+        <p>Price:{{element.price}}</p>
       </div>
 
       <button class="plus" @click="increment()">+</button>
       <input class="quantity" :value="amount" />
       <button class="minus" @click="decrement()">-</button>
       <a href="#" class="product-button">Add to Card</a>
+    </div>
+  </div>
     </div>
   </div>
   </div>
@@ -52,6 +59,7 @@ export default {
       this.amount--;
     },
   },
+  
 }
 
 </script>
@@ -63,8 +71,16 @@ body {
   background: #f8f4f2;
   font-family: Arial;
 }
+.home2{
+      margin-left:10%;
 
+ display: flex;
+ flex-wrap: wrap;
+
+}
 .a-box {
+ margin: 10px;
+  margin-top:90px;
   display: inline-block;
   width: 240px;
   text-align: center;
