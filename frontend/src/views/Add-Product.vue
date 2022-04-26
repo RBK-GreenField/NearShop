@@ -11,32 +11,35 @@
         <div class="col-3"></div>
         <div class="col-6">
           <form>
-            <div class="form-group">
+            <div class="fields">
               <label>Title</label>
+              <span>
               <input
                 type="text"
                 placeholder="name of your product"
                 class="form-control"
                 v-model="title"
-              />
+              /></span>
             </div>
-            <div class="form-group">
+            <div class="fields">
               <label>Description</label>
+              <span>
               <textarea
                 type="text"
                 placeholder="description"
                 class="form-control"
                 v-model="description"
-              />
+              /></span>
             </div>
-            <div class="form-group">
+            <div class="fields">
               <label>quantite</label>
+              <span>
               <input
                 type="number"
                 placeholder="quantite"
                 class="form-control"
                 v-model="quantite"
-              />
+              /></span>
             </div>
             <div>
    <div v-if="!image">
@@ -192,7 +195,7 @@ h1 {
 margin-left:40%
  }
 
- /* img {
+  img {
   width: 30%;
   margin: auto;
   display: block;
@@ -202,6 +205,6 @@ margin-left:40%
   height: 2cm;
 }
 input{
-    border: 2px solid #eee;
-} */
+  border-radius: 3px;
+}
 </style>
