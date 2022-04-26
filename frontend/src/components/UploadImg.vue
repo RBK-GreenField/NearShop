@@ -4,7 +4,7 @@
       <h2>Select an image</h2>
       <input type="file" @change="onFileChange" />
     </div>
-    <div v-else>
+    <div v-else >
       <img :src="image" />
       <button @click="upload">upload</button>
       <button @click="removeImage">Remove image</button>
@@ -20,6 +20,22 @@ export default {
     return {
       image: "",
     };
+  },
+  mounted() {
+    axios
+      .get("http://localhost:3000/api/users/user", {
+        headers: { token: localStorage.getItem("token") },
+      })
+      .then((res) => {
+        // to get information of the user
+        this.user_id = res.data.user.id;
+      })
+      .then((res) => {
+        console.log(res.user_id, "heee");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
     upload() {

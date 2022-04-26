@@ -41,6 +41,17 @@
                 v-model="quantite"
               /></span>
             </div>
+            <div>
+   <div v-if="!image">
+      <h2>Select an image</h2>
+      <input type="file" @change="onFileChange" />
+    </div>
+    <div v-else >
+      <img :src="image" />
+      
+      <button @click="removeImage">Remove image</button>
+    </div>
+  </div>
             <button
               type="button"
               @click="AddProduct"
@@ -53,7 +64,7 @@
               type="button"
               @click="getProductById"
               class="btn btn-primary"
-              id="save"
+              id="get"
             >
               get product
             </button>
@@ -70,22 +81,23 @@
     </div>
     <br />
     <br />
-    {{ user_id }}
-    <UploadImg />
+    <div class="pos">
+    {{ data}}
+    <!-- <UploadImg  /> -->
     <AddComment />
-    
+    </div>
   </div>
 </template>
 
 <script>
 import AddComment from "./AddComment";
 import axios from "axios";
-import UploadImg from "@/components/UploadImg.vue";
+// import UploadImg from "@/components/UploadImg.vue";
 export default {
   name: "Add-Product",
   components: {
     AddComment,
-    UploadImg,
+    // UploadImg,
   },
   data() {
     return {
@@ -93,10 +105,8 @@ export default {
       description: "",
       quantite: "",
       user_id: "",
-      phone: "",
-      email: "",
-      address: "",
       data: [],
+      image: ""
     };
   },
   mounted() {
@@ -123,28 +133,36 @@ export default {
         description: this.description,
         quantite: this.quantite,
         user_id: this.user_id,
+        image:this.image
       };
       axios
-        .post("http://localhost:3000/api/products/add", newProduct)
-        .then(() => {
+        .post("http://localhost:3000/api/products/addproduct", newProduct)
+        .then((res) => {
           this.$router.push("All-Products");
+          console.log (res)
         })
         .catch((error) => {
           console.log(error);
         });
     },
-
     getProductById() {
-      console.log(this.user_id, "jjkjkjkjkj");
-      axios
-        .get(`http://localhost:3000/api/products/${this.user_id}`)
-        .then((res) => {
-          console.log(res);
-          this.data = res.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+       this.$router.push("MyProducts");
+    },
+     onFileChange(e) {
+      var files = e.target.files;
+      if (!files.length) return;
+      this.createImage(files[0]);
+    },
+    createImage(file) {
+      var reader = new FileReader();
+      var vm = this;
+      reader.onload = (e) => {
+        vm.image = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    },
+    removeImage: function () {
+      this.image = "";
     },
   },
 };
@@ -159,9 +177,32 @@ h1 {
   margin-right: -40%;
   width: 2000px;
 }
-
 #save {
-  margin-left: 45%;
+  margin-left: 20%;
+}
+
+#get{
+  margin-left: 40%;
+}
+
+
+ h1 {
+     text-align: center;
+     color: #333333
+ }
+
+ .pos{
+margin-left:40%
+ }
+
+  img {
+  width: 30%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  width: 2cm;
+  height: 2cm;
 }
 input{
   border-radius: 3px;
