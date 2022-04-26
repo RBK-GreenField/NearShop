@@ -1,7 +1,8 @@
-var User = require('../database-mongo/User.model.js');
+const User = require('../database-mongo/User.model.js');
+const Cart = require("../database-mongo/Cart.model");
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
-const { send } = require('process');
+const cloudinary = require("../utils/cloudinary");
 
 
 var selectAll = function (req, res) {
@@ -15,35 +16,52 @@ var selectAll = function (req, res) {
 };
 
 var add = function (req, res){
-  let {name,password,email}=req.body
-
-  User.insertMany({name, password,email})
-  .then((user) => {
-    res.status(200).send(user);
-  })
-  .catch((error) => {
-    res.status(500).send(error);
-  });
+      let {name,password,email}=req.body
+      User.insertMany({name, password,email})
+      .then((user) => {
+        res.status(200).send(user);
+      })
+      .catch((error) => {
+        res.status(500).send(error);
+      });
 }
 
-var signup = function(req,res){
-  
-  const newUser = new User({
+let signup = async (req,res)=>{
+  const { image } = req.body;
+  await cloudinary.uploader.upload(image, (err, result) => {
+    if (err) {
+      res.send(err);
+    } 
+    else {
+      console.log("inside else signup")
+      const url = result.secure_url;
+      console.log(url);
+      res.send(url);
+      const newUser = new User({
         email: req.body.email,
         username: req.body.username,
+        image:url,
         address: req.body.address,
         phone: req.body.phone,
         password: bcrypt.hashSync(req.body.password, 10)
       })
-newUser.save(err => {
-      if (err) {
-        return res.status(400).send(err)
-      }
-      return res.status(200).json({
-        title: 'signup success'
-      })
-    })
-  };
+      newUser
+      .save()
+      .then(user =>{
+        let cart = new Cart({
+          user_id: user._id ,
+          listProduct: [] ,
+          total: 0,
+          status: "vide",
+          })
+        cart
+        .save()
+        .then(cart=>res.send('cart added'))
+     })
+      .catch(err=>res.send(err))
+    }
+  });
+};
 
   var login = function (req, res){
     User.findOne({username: req.body.username}, (err, user) => {
