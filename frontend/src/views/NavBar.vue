@@ -1,4 +1,6 @@
 <template>
+
+
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
       <button
@@ -41,18 +43,24 @@
               >Add-Product</router-Link
             >
           </li>
+
+          <li class="nav-item" v-if="user">
+            <router-Link class="nav-link" to="/MyProfile"
+              >profile</router-Link
+            >
+          </li>
       
           <li class="nav-item" v-if="user" style="margin-left: 820px">
             <div class="dropdown">
-              <div class="dropbtn">{{ user.username }}</div>
+              <div class="dropbtn">{{user.username}}</div>
              
               <div class="dropdown-content">
-                <a href="#">profile</a>
-                <a href="#">my products</a>
+                <a href="/MyProfile">profile</a>
+                <a href="/MyProducts">my products</a>
                 <a href="/login" @click="logout">logout</a>
               </div>
             </div>
-            
+
           </li>
         </ul>
       </div>

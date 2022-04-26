@@ -99,6 +99,7 @@ let signup = async (req,res)=>{
       res.send(err)
     })
   }
+
   var updateUser=function(req,res){
     let id=req.params.id
     let up=req.body
@@ -125,6 +126,7 @@ let signup = async (req,res)=>{
             username: user.username,
             address: user.address,
             phone: user.phone,
+            image:user.image,
             id:user.id
           }
         })
