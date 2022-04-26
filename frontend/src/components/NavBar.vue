@@ -89,8 +89,8 @@
               <div class="dropbtn">{{ user.username }}</div>
              
               <div class="dropdown-content">
-                <a href="#">profile</a>
-                <a href="#">my products</a>
+                <a href="/MyProfile">profile</a>
+                <a href="MyProducts">my products</a>
                 <a href="/login" @click="logout">logout</a>
               </div>
             </div>
