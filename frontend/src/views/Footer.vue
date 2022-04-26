@@ -17,15 +17,21 @@ export default{
 }
 </script>
 <style>
-
+:root {
+  --active-color: #ffee93;
+  --link-text-color: #f1faee;
+  --menu-background-color: #1d3557;
+  --active-background-color: #132238;
+}
 .footer{
-  
+  color:white;
   width: 100%;
-  bottom:-120px;
-  margin: auto;
+  padding: 20px;
+  background-color: #1d3557;
   text-align: center;
-  position: absolute;
-  background: rgb(203, 223, 223);
+  position: relative;
+  bottom:0;
+  /* background: rgb(203, 223, 223); */
 }
 .icon{
     font-size: 25px;

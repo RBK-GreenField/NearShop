@@ -90,7 +90,8 @@
              
               <div class="dropdown-content">
                 <a href="/MyProfile">profile</a>
-                <a href="MyProducts">my products</a>
+                <a href="/MyProducts">my products</a>
+                <a href="/addProduct">add product</a>
                 <a href="/login" @click="logout">logout</a>
               </div>
             </div>
@@ -292,6 +293,6 @@ export default {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  background-color: #93d9ff;
 }
 </style>
