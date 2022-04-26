@@ -35,8 +35,7 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 800px;
-   
+    height: 800px;   
   }
   .hero-body .title {
     text-shadow: 4px 4px 4px rgba(245, 249, 248, 0.45);

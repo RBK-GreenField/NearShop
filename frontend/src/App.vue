@@ -1,14 +1,17 @@
 <template>
   <div>
   <NavBar/>
+  <router-view style="margin:10px"/>
+  <div style ='height: 200px;'>
+
+  </div>
   <Footer/>
-  <router-view/>
   </div>
 </template>
 
 
 <script>
-import NavBar from './views/NavBar'
+import NavBar from './components/NavBar'
 import Footer from './views/Footer.vue'
 export default {
   name: 'App',
@@ -20,5 +23,7 @@ export default {
 }
 </script>
 <style>
-@import '~bootstrap/dist/css/bootstrap.min.css'
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 </style>
