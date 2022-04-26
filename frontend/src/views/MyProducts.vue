@@ -41,8 +41,8 @@ data() {
     return {
      user_id:'',
       data:[],
-     
     }
+
       },
       mounted() {
     axios.get('http://localhost:3000/api/users/user', { headers: { token: localStorage.getItem('token')}})
