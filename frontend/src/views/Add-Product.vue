@@ -41,6 +41,15 @@
                 v-model="quantite"
               /></span>
             </div>
+             <div class="form-group">
+              <label>price</label>
+              <input
+                type="number"
+                placeholder="quantite"
+                class="form-control"
+                v-model="price"
+              />
+            </div>
             <div>
    <div v-if="!image">
       <h2>Select an image</h2>
@@ -104,6 +113,7 @@ export default {
       title: "",
       description: "",
       quantite: "",
+      price:'',
       user_id: "",
       data: [],
       image: ""
@@ -130,6 +140,7 @@ export default {
     AddProduct() {
       let newProduct = {
         title: this.title,
+        price:this.price,
         description: this.description,
         quantite: this.quantite,
         user_id: this.user_id,
@@ -195,7 +206,9 @@ h1 {
 margin-left:40%
  }
 
+
   img {
+
   width: 30%;
   margin: auto;
   display: block;
@@ -205,6 +218,8 @@ margin-left:40%
   height: 2cm;
 }
 input{
-  border-radius: 3px;
+
+    border: 2px solid #eee;
 }
 </style>
+
