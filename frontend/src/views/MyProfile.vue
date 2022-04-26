@@ -75,16 +75,13 @@ export default {
 }
 #profile {
   background: #f1f2f6;
+    margin-left:50%;
+
   margin: 0;
   padding: 0;
 }
 
-.image-area {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-}
+ 
 
 .img-wrapper {
   width: 300px;
