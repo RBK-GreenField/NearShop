@@ -1,9 +1,12 @@
 <template>
   <div>
     <h1 style="margin-left: 0%">here our all Products</h1>
+    <p>search</p>
+       <input class="mySearch" type="text" v-model="search" placeholder="search product" />
+     <i class="mySearch fa-solid fa-magnifying-glass"></i>
     <div class="home2">
       <br />
-      <div v-for="element in data" v-bind:key="element._id">
+      <div v-for="element in filtredProduct" v-bind:key="element._id">
         <div class="a-box">
           <div class="img-container">
             <div class="img-inner">
