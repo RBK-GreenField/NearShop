@@ -21,4 +21,14 @@ var addToCart = function (req, res) {
       res.send("err");
     });
 };
-module.exports = { addCart, addToCart };
+
+let getCartByUserId = (req,res) =>{
+  let {user_id} = req.params
+  Cart.find({user_id}).then(cart =>{
+    res.json(cart)
+  }).catch(err=>res.send(err))
+}
+
+// let addToCart = ()
+
+module.exports = { addCart, getCartByUserId };
