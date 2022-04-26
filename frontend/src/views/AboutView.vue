@@ -86,6 +86,17 @@ export default {
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  
+}
+img {
+  width: 50%;
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  width: 10%;
+  height: 10%;
 }
 
 html {
@@ -104,10 +115,13 @@ html {
 }
 
 .card {
-  
+   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-  border-radius: 5px;
+  border-radius: 8%;
+}
+.card:hover{
+  transform: scale(1.1); 
 }
 
 .about-section {

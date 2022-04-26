@@ -10,8 +10,8 @@
      <div class="container3">
          <h1>{{element.title}}</h1>
          <div class="cardcontainer">
-             <div class="photo"> <img :src="element.image_url">
-                 <div class="photos">Photos</div>
+             <div class="photo2"> <img :src="element.image_url">
+                 <div class="photos2">Photos</div>
              </div>
              <div class="content">
                  <p class="txt4"> Quantite: {{element.quantite}}</p>
@@ -41,8 +41,8 @@ data() {
     return {
      user_id:'',
       data:[],
-     
     }
+
       },
       mounted() {
     axios.get('http://localhost:3000/api/users/user', { headers: { token: localStorage.getItem('token')}})
@@ -116,12 +116,12 @@ h1 {
     box-shadow: 0 0 45px gray
 }
 
-.photo {
+.photo2 {
     height: 300px;
     width: 100%
 }
 
-.photo img {
+.photo2 img {
     height: 100%;
     width: 100%
 }
@@ -141,7 +141,7 @@ h1 {
     top: -33px
 }
 
-.photos {
+.photos1 {
     width: 90px;
     height: 30px;
     background-color: #E74C3C;
