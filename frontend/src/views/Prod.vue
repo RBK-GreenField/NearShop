@@ -15,9 +15,11 @@
       </div>
     </div>
     <div class="text-container">
-      <h3>{{element.title}}</h3>
+      <h3> Name:{{element.title}}</h3>
       <div>
-        <p>{{element.description}}</p>
+        <p>Description:{{element.description}}</p>
+        
+        <p>Price:{{element.price}}</p>
       </div>
 
       <button class="plus" @click="increment()">+</button>
@@ -57,6 +59,7 @@ export default {
       this.amount--;
     },
   },
+  
 }
 
 </script>
